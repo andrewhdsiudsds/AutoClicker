@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>AutoClicker</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -14,24 +14,37 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-      <div class="autoclicker-container">
-          <div class="card-deck">
-              <div class="card">
-                  <img class="card-img-top" src="holder.js/100x180/" alt="">
-                  <div class="card-body">
-                      <h4 class="card-title">Title</h4>
-                      <p class="card-text">Text</p>
-                  </div>
-              </div>
-              <div class="card">
-                  <img class="card-img-top" src="holder.js/100x180/" alt="">
-                  <div class="card-body">
-                      <h4 class="card-title">Title</h4>
-                      <p class="card-text">Text</p>
-                  </div>
-              </div>
-          </div>
+    <div class="autoclicker-container">
+      <div class="input-group flex-nowrap mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping">Start Time</span>
+        </div>
+        <input type="time" class="form-control" placeholder="Start Time" />
       </div>
+
+      <div class="input-group flex-nowrap mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping">Interval</span>
+        </div>
+        <input type="number" class="form-control" placeholder="1" />
+      </div>
+
+      <div class="input-group flex-nowrap mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping"
+            >Class To Click</span
+          >
+        </div>
+        <input type="text" class="form-control" placeholder=".btn" />
+      </div>
+
+      <div class="footer row">
+        <div class="col">
+          <button type="button" class="btn btn-primary">Start</button>
+        </div>
+       
+      </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.3.1.slim.min.js"></script>

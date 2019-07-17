@@ -9,13 +9,24 @@
       "js": ["js/jquery-3.3.1.slim.min.js", "app/content.js"]
     }
   ],
+  "permissions": ["storage"],
   "browser_action": {
     "default_icon": {
       "16": "images/icon-16x16.png",
       "24": "images/icon-24x24.png",
       "32": "images/icon-32x32.png"
     },
+    "background": {
+      "scripts": ["js/background.js"],
+      "persistent": false
+    },
     "default_title": "Auto Clicker",
     "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "images/icon-16x16.png",
+    "24": "images/icon-24x24.png",
+    "32": "images/icon-32x32.png",
+    "128": "images/icon-128x128.png"
   }
 }
