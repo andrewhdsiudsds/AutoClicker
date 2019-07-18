@@ -15,38 +15,65 @@
   </head>
   <body>
     <div class="autoclicker-container">
+      <div class="status row mb-3">
+         <div class="col">
+            <span id="led" class="led red"></span>
+          <span id="label" class="label"></span>
+         </div>
+      </div>
       <div class="input-group flex-nowrap mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="addon-wrapping">Start Time</span>
         </div>
-        <input type="time" class="form-control" placeholder="Start Time" />
-      </div>
-
-      <div class="input-group flex-nowrap mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="addon-wrapping">Interval</span>
-        </div>
-        <input type="number" class="form-control" placeholder="1" />
+        <input type="datetime" class="form-control" placeholder="Start Time" />
       </div>
 
       <div class="input-group flex-nowrap mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="addon-wrapping"
-            >Class To Click</span
+            >XPath To Click</span
           >
         </div>
-        <input type="text" class="form-control" placeholder=".btn" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="//parent_elem//button[@class='btn']"
+        />
       </div>
 
-      <div class="footer row">
-        <div class="col">
-          <button type="button" class="btn btn-primary">Start</button>
+      <div class="row">
+        <div class="col-12 mb-3">
+          <button
+            type="button"
+            id="saveBtn"
+            class="btn btn-primary btn-lg btn-block"
+          >
+            Save
+          </button>
         </div>
-       
+        <div class="col-6">
+          <button
+            id="startBtn"
+            type="button"
+            class="btn btn-success btn-lg btn-block"
+          >
+            Start
+          </button>
+        </div>
+        <div class="col-6">
+          <button
+            id="stopBtn"
+            type="button"
+            class="btn btn-danger btn-lg btn-block"
+          >
+            Stop
+          </button>
+        </div>
       </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="popup.js"></script>
     <script src="js/jquery-3.3.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

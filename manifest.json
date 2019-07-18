@@ -3,13 +3,8 @@
   "name": "Auto Clicker",
   "description": "Set Time, Set Element to Click, Start!",
   "version": "0.1",
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["js/jquery-3.3.1.slim.min.js", "app/content.js"]
-    }
-  ],
-  "permissions": ["storage"],
+  
+  "permissions": ["tabs", "<all_urls>"],  
   "browser_action": {
     "default_icon": {
       "16": "images/icon-16x16.png",
@@ -17,7 +12,7 @@
       "32": "images/icon-32x32.png"
     },
     "background": {
-      "scripts": ["js/background.js"],
+      "scripts": ["background.js"],
       "persistent": false
     },
     "default_title": "Auto Clicker",
@@ -30,3 +25,4 @@
     "128": "images/icon-128x128.png"
   }
 }
+ 
