@@ -5,16 +5,23 @@ var led = document.getElementById("led");
 var label = document.getElementById("label");
 
 // Start function
-function start(startTime) {
+function start() {
   setStatus(true);
-  var now = new Date(); // Get current date and time
-  var startTime =
-    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 10, 0, 0, 0) -
-    now; // Set Start Time
+  let datetime_picker = document.getElementById("datetime-picker");
 
-  timer = setTimeout(function() {
+  let now = new Date(); // Get current date and time
+
+  if (datetime_picker.value === "") {
     injectTheScript();
-  }, startTime);
+    setStatus(false);
+  } else {
+    let selectedDate = new Date(datetime_picker.value);
+    let startTime = selectedDate - now; // Set Start Time
+    timer = setTimeout(function() {
+      injectTheScript();
+      setStatus(false);
+    }, startTime);
+  }
 }
 
 // Stop function
@@ -28,21 +35,30 @@ function setStatus(status) {
     case true:
       led.classList.remove("red");
       led.classList.add("green");
+      label.innerHTML = "Started";
       break;
     case false:
       led.classList.remove("green");
       led.classList.add("red");
+      label.innerHTML = "Stopped";
       break;
   }
 }
 
 // Inject Trigger to the current active Web Page
 function injectTheScript() {
+  let xpath = document.getElementById("xpath-input").value || "";
   chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-    // query the active tab, which will be only one tab
-    //and inject the script in it
-    chrome.tabs.executeScript(tabs[0].id, { file: "content.js" });
-    
+    chrome.tabs.executeScript({
+      code: `
+      (function () {
+        let btn = new XPathEvaluator()
+        .createExpression("${xpath}")
+        .evaluate(document, XPathResult.FIRST_ORDERED_NODE_TYPE).singleNodeValue;
+        btn.click();
+       })();
+      `
+    });
   });
 }
 

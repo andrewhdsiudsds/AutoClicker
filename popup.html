@@ -16,16 +16,21 @@
   <body>
     <div class="autoclicker-container">
       <div class="status row mb-3">
-         <div class="col">
-            <span id="led" class="led red"></span>
-          <span id="label" class="label"></span>
-         </div>
+        <div class="col d-flex ">
+          <span id="led" class="led red mr-2"></span>
+          <span id="label" class="label">Stopped</span>
+        </div>
       </div>
       <div class="input-group flex-nowrap mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="addon-wrapping">Start Time</span>
         </div>
-        <input type="datetime" class="form-control" placeholder="Start Time" />
+        <input
+          id="datetime-picker"
+          type="datetime-local"
+          class="form-control"
+          placeholder="Start Time"
+        />
       </div>
 
       <div class="input-group flex-nowrap mb-3">
@@ -35,6 +40,7 @@
           >
         </div>
         <input
+          id="xpath-input"
           type="text"
           class="form-control"
           placeholder="//parent_elem//button[@class='btn']"
