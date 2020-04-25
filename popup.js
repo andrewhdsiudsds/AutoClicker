@@ -20,7 +20,7 @@ function start() {
     injectTheScript();
     setStatus(false);
   } else {
-    let selectedDate = new Date(datetime_picker.value);
+    let selectedDate = new Date(datetime_picker.value).setMilliseconds(500);
     let startTime = selectedDate - now; // Set Start Time
 
    
@@ -35,7 +35,7 @@ function start() {
       let thisTime = new Date();
       let remainingTime = selectedDate - thisTime;
       timerLabel.innerHTML  = " - " + msToTime(remainingTime);
-    }, 1000);
+    }, 500);
 
 
   }
@@ -49,7 +49,7 @@ function msToTime(s) {
   var mins = s % 60;
   var hrs = (s - mins) / 60;
 
-  return hrs + ':' + mins + ':' + secs;
+  return hrs + ':' + mins + ':' + secs + ':' + ms;
 }
 
 
